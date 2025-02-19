@@ -1,0 +1,5 @@
+flink:
+  sensitive-data:
+    sensitive-data-list:
+      - "test@163.com"
+      - "18626100133"

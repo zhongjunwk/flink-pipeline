@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.18</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.zj.flink</groupId>
+    <artifactId>flink-pipeline</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>8</java.version>
+        <hutool.version>5.8.25</hutool.version>
+        <flink.version>1.16.0</flink.version>
+        <flink-shaded-jackson.version>2.13.4-16.0</flink-shaded-jackson.version>
+        <lombook.version>1.18.30</lombook.version>
+    </properties>
+    <modules>
+        <module>pipeline-common</module>
+        <module>pipeline-core</module>
+        <module>pipeline-mock</module>
+        <module>pipeline-job-config</module>
+        <module>pipeline-rule-engine</module>
+        <module>pipeline-job</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Flink Data Stream依赖 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-scala_2.12</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <!-- Flink clients依赖 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <!-- Flink Json 序列化依赖 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-json</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <!-- Flink Shaded Jackson 2 -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-shaded-jackson</artifactId>
+                <version>${flink-shaded-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>2.13.4</version>
+            </dependency>
+            <!-- Flink Kafka Connector-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombook.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--仓库设置-->
+    <repositories>
+        <repository>
+            <id>idss</id>
+            <url>http://172.16.0.9:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>idss-releases</id>
+            <url>http://172.16.0.9:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>idss-snapshots</id>
+            <url>http://172.16.0.9:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
