@@ -2,7 +2,7 @@ package com.zj.flink.pipeline.core;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ClassUtil;
-import com.zj.flink.config.bean.FlinkConfig;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
 import com.zj.flink.pipeline.core.config.PipelineProperties;
 import com.zj.flink.pipeline.core.plugins.PipelinePlugin;
@@ -22,7 +22,7 @@ public class PipelineManager<Record> {
 
     private Map<String, Pipeline<Record>> allPipelines;
 
-    public void start(FlinkConfig flinkConfig, StreamExecutionEnvironment env) {
+    public void start(FlinkPipelineConfig flinkConfig, StreamExecutionEnvironment env) {
         this.pipelineProperties = flinkConfig.getConfig(PipelineProperties.class);
         this.init(flinkConfig);
         this.allPipelines.forEach((name, pipeline) -> pipeline.start(env));
@@ -54,7 +54,7 @@ public class PipelineManager<Record> {
         return instances;
     }
 
-    private PipelinePlugin<Record> getAndCheck(String name, Map<String, Class<Record>> instances, FlinkConfig flinkConfig) {
+    private PipelinePlugin<Record> getAndCheck(String name, Map<String, Class<Record>> instances, FlinkPipelineConfig flinkConfig) {
         Class<PipelinePlugin<Record>> type = (Class<PipelinePlugin<Record>>) instances.get(this.getPipelineName(name));
         if (type == null) {
             throw new UnsupportedOperationException("未找到声明@" + PluginComponent.class.getName() + "(" + name + ")的实现类");
@@ -71,7 +71,7 @@ public class PipelineManager<Record> {
         }
     }
 
-    private void init(FlinkConfig flinkConfig) {
+    private void init(FlinkPipelineConfig flinkConfig) {
         Map<String, Pipeline<Record>> pipelineMap = new HashMap<>();
         Map<String, Class<Record>> pluginMap = this.createInstances();
         this.pipelineProperties.getPipelines().forEach((pipelineName, property) -> {

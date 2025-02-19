@@ -5,6 +5,6 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface FlinkConfiguration {
+public @interface FlinkPipelineConfiguration {
     String value();
 }

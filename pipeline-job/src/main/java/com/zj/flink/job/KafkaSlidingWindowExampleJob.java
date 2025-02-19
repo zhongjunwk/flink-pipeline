@@ -1,8 +1,8 @@
 package com.zj.flink.job;
 
 import com.zj.flink.common.beans.RecordData;
-import com.zj.flink.config.bean.FlinkConfig;
-import com.zj.flink.config.bean.annotation.FlinkConfiguration;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
+import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
 import com.zj.flink.config.util.FlinkConfigUtil;
 import com.zj.flink.context.FlinkAnnotationConfigApplicationContext;
 import com.zj.flink.context.FlinkApplicationConfigContext;
@@ -30,8 +30,8 @@ public class KafkaSlidingWindowExampleJob {
         env.setParallelism(1);
         // 使用注解配置类加载 Spring 应用上下文
         AnnotationConfigApplicationContext applicationContext = new FlinkAnnotationConfigApplicationContext(null, FlinkApplicationConfigContext.class).getApplicationContext();
-        Map<String, Object> configurationMap = applicationContext.getBeansWithAnnotation(FlinkConfiguration.class);
-        FlinkConfig flinkConfig = FlinkConfig.getInstance();
+        Map<String, Object> configurationMap = applicationContext.getBeansWithAnnotation(FlinkPipelineConfiguration.class);
+        FlinkPipelineConfig flinkConfig = FlinkPipelineConfig.getInstance();
         flinkConfig.initConfig(FlinkConfigUtil.convertSpringBeanConfigurationMapToBeanConfigurationMap(configurationMap));
         new PipelineManager<RecordData>().start(flinkConfig, env);
         // 执行Flink作业

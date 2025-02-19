@@ -8,15 +8,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Data
-public class FlinkConfig implements Serializable {
+public class FlinkPipelineConfig implements Serializable {
     private static final long serialVersionUID = 1L;
     private Map<String, Object> config = new ConcurrentHashMap<>();
 
-    private FlinkConfig() {
+    private FlinkPipelineConfig() {
 
     }
 
-    public static FlinkConfig getInstance() {
+    public static FlinkPipelineConfig getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -35,6 +35,6 @@ public class FlinkConfig implements Serializable {
     }
 
     private static class SingletonHolder {
-        private static final FlinkConfig INSTANCE = new FlinkConfig();
+        private static final FlinkPipelineConfig INSTANCE = new FlinkPipelineConfig();
     }
 }

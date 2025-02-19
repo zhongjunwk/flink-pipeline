@@ -10,7 +10,6 @@ import java.util.Map;
 public class PipelineProperties implements Serializable, Cloneable {
 
     private String pluginPackages;
-
     private Map<String, PipelineServerProperties> pipelines;
 
     @Override

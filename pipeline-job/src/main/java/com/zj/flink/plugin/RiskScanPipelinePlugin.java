@@ -1,7 +1,7 @@
 package com.zj.flink.plugin;
 
 import com.zj.flink.common.beans.RecordData;
-import com.zj.flink.config.bean.FlinkConfig;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.config.bean.RiskStrategyConfig;
 import com.zj.flink.config.bean.WhiteListConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
@@ -28,7 +28,7 @@ public class RiskScanPipelinePlugin extends AbstractProcessPipelinePlugin<Record
     private RiskStrategyConfig riskStrategyConfig;
 
     @Override
-    public void init(FlinkConfig flinkConfig) {
+    public void init(FlinkPipelineConfig flinkConfig) {
         this.whiteListConfig = flinkConfig.getConfig(WhiteListConfig.class);
         this.riskStrategyConfig = flinkConfig.getConfig(RiskStrategyConfig.class);
     }

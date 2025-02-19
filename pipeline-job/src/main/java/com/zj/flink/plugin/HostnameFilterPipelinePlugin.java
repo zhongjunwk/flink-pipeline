@@ -1,7 +1,7 @@
 package com.zj.flink.plugin;
 
 import com.zj.flink.common.beans.RecordData;
-import com.zj.flink.config.bean.FlinkConfig;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.config.bean.WhiteListConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
 import com.zj.flink.pipeline.core.plugins.AbstractProcessPipelinePlugin;
@@ -18,7 +18,7 @@ public class HostnameFilterPipelinePlugin extends AbstractProcessPipelinePlugin<
     private WhiteListConfig whiteListConfig;
 
     @Override
-    public void init(FlinkConfig flinkConfig) {
+    public void init(FlinkPipelineConfig flinkConfig) {
         this.whiteListConfig = flinkConfig.getConfig(WhiteListConfig.class);
     }
 

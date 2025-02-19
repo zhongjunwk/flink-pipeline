@@ -1,7 +1,7 @@
 package com.zj.flink.plugin;
 
 import com.zj.flink.common.beans.RecordData;
-import com.zj.flink.config.bean.FlinkConfig;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.config.bean.SensitiveDataConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
 import com.zj.flink.pipeline.core.plugins.AbstractProcessPipelinePlugin;
@@ -16,7 +16,7 @@ public class DataSensitiveScanPipelinePlugin extends AbstractProcessPipelinePlug
     private SensitiveDataConfig censitiveDataConfig;
 
     @Override
-    public void init(FlinkConfig flinkConfig) {
+    public void init(FlinkPipelineConfig flinkConfig) {
         this.censitiveDataConfig = flinkConfig.getConfig(SensitiveDataConfig.class);
     }
 

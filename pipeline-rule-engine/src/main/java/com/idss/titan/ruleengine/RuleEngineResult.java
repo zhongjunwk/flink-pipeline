@@ -1,10 +1,5 @@
 package com.idss.titan.ruleengine;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-
-import java.util.List;
-
 /**
  * User: cch
  * Date: 2021/1/11 16:16

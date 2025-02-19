@@ -1,6 +1,6 @@
 package com.zj.flink.config.bean;
 
-import com.zj.flink.config.bean.annotation.FlinkConfiguration;
+import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.connector.base.DeliveryGuarantee;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Properties;
 
 @Data
-@FlinkConfiguration("kafkaConfig")
+@FlinkPipelineConfiguration("kafkaConfig")
 public class KafkaConfig implements Serializable, Cloneable {
 
     public static final String BOOTSTRAP_SERVERS = "bootstrap.servers";

@@ -2,7 +2,7 @@ package com.zj.flink.plugin;
 
 import com.zj.flink.common.beans.RecordData;
 import com.zj.flink.common.deserialization.JsonDataDeserializationSchema;
-import com.zj.flink.config.bean.FlinkConfig;
+import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.config.bean.KafkaConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
 import com.zj.flink.pipeline.core.plugins.AbstractInputPipelinePlugin;
@@ -18,7 +18,7 @@ public class KafkaInputPipelinePlugin extends AbstractInputPipelinePlugin<Record
     private KafkaConfig kafkaConfig;
 
     @Override
-    public void init(FlinkConfig flinkConfig) {
+    public void init(FlinkPipelineConfig flinkConfig) {
         this.kafkaConfig = flinkConfig.getConfig(KafkaConfig.class);
     }
 
