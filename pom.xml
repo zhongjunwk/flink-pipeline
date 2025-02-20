@@ -21,7 +21,6 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <modules>
-        <module>pipeline-common</module>
         <module>pipeline-config</module>
         <module>pipeline-core</module>
         <module>pipeline-job</module>

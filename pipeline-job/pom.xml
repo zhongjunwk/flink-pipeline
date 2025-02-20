@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>pipeline-job-data-mock</module>
+        <module>pipeline-job-common</module>
         <module>pipeline-job-config</module>
         <module>pipeline-job-core</module>
     </modules>
