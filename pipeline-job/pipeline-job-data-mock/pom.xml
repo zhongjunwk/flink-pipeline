@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zj.flink</groupId>
-        <artifactId>flink-pipeline</artifactId>
+        <artifactId>pipeline-job</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>pipeline-mock</artifactId>
+    <artifactId>pipeline-job-data-mock</artifactId>
     <properties>
         <java.version>8</java.version>
     </properties>

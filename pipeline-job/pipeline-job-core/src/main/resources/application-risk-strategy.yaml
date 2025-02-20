@@ -1,0 +1,8 @@
+flink:
+  riskStrategy:
+    riskStrategyList:
+      - name: "风险1"
+        type: "1"
+        discription: "风险1"
+        riskStrategyFactorsList:
+          - limitNum: 10
