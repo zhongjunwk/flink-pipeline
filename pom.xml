@@ -21,6 +21,7 @@
     </properties>
     <modules>
         <module>pipeline-common</module>
+        <module>pipeline-config</module>
         <module>pipeline-core</module>
         <module>pipeline-mock</module>
         <module>pipeline-job-config</module>

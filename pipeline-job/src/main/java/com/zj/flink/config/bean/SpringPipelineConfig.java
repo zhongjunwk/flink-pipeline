@@ -1,5 +1,6 @@
 package com.zj.flink.config.bean;
 
+import com.zj.flink.pipeline.core.config.bean.PipelineConfig;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ClassUtil;
 import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
-import com.zj.flink.pipeline.core.config.PipelineProperties;
+import com.zj.flink.pipeline.core.config.bean.PipelineConfig;
 import com.zj.flink.pipeline.core.plugins.PipelinePlugin;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -18,13 +18,13 @@ public class PipelineManager<Record> {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private PipelineProperties pipelineProperties;
+    private PipelineConfig pipelineConfig;
 
     private Map<String, Pipeline<Record>> allPipelines;
 
-    public void start(FlinkPipelineConfig flinkConfig, StreamExecutionEnvironment env) {
-        this.pipelineProperties = flinkConfig.getConfig(PipelineProperties.class);
-        this.init(flinkConfig);
+    public void start(FlinkPipelineConfig flinkPipelineConfig, StreamExecutionEnvironment env) {
+        this.pipelineConfig = flinkPipelineConfig.getConfig(PipelineConfig.class);
+        this.init(flinkPipelineConfig);
         this.allPipelines.forEach((name, pipeline) -> pipeline.start(env));
     }
 
@@ -42,7 +42,7 @@ public class PipelineManager<Record> {
 
     private Map<String, Class<Record>> createInstances() {
         Map<String, Class<Record>> instances = new ConcurrentHashMap<>();
-        this.getPlugins(this.pipelineProperties.getPluginPackages()).forEach((instance) -> {
+        this.getPlugins(this.pipelineConfig.getPluginPackages()).forEach((instance) -> {
             if (!PipelinePlugin.class.isAssignableFrom(instance)) {
                 String plugin = instance.getName();
                 throw new UnsupportedOperationException(plugin + "未继承" + PipelinePlugin.class.getName());
@@ -54,7 +54,7 @@ public class PipelineManager<Record> {
         return instances;
     }
 
-    private PipelinePlugin<Record> getAndCheck(String name, Map<String, Class<Record>> instances, FlinkPipelineConfig flinkConfig) {
+    private PipelinePlugin<Record> getAndCheck(String name, Map<String, Class<Record>> instances, FlinkPipelineConfig flinkPipelineConfig) {
         Class<PipelinePlugin<Record>> type = (Class<PipelinePlugin<Record>>) instances.get(this.getPipelineName(name));
         if (type == null) {
             throw new UnsupportedOperationException("未找到声明@" + PluginComponent.class.getName() + "(" + name + ")的实现类");
@@ -66,26 +66,26 @@ public class PipelineManager<Record> {
                 throw new RuntimeException(e);
             }
             pipelinePlugin.setName(name);
-            pipelinePlugin.init(flinkConfig);
+            pipelinePlugin.init(flinkPipelineConfig);
             return pipelinePlugin;
         }
     }
 
-    private void init(FlinkPipelineConfig flinkConfig) {
+    private void init(FlinkPipelineConfig flinkPipelineConfig) {
         Map<String, Pipeline<Record>> pipelineMap = new HashMap<>();
         Map<String, Class<Record>> pluginMap = this.createInstances();
-        this.pipelineProperties.getPipelines().forEach((pipelineName, property) -> {
+        this.pipelineConfig.getPipelines().forEach((pipelineName, property) -> {
             Pipeline<Record> pipeline = new Pipeline<>();
             pipeline.setName(pipelineName);
-            pipeline.setInputPlugin(this.getAndCheck(property.getInput(), pluginMap, flinkConfig));
+            pipeline.setInputPlugin(this.getAndCheck(property.getInput(), pluginMap, flinkPipelineConfig));
             if (CollectionUtil.isNotEmpty(property.getPlugins())) {
                 List<PipelinePlugin<Record>> processPipelinePluginList = new ArrayList<>(property.getPlugins().size());
                 property.getPlugins().forEach((pluginName) -> {
-                    processPipelinePluginList.add(this.getAndCheck(pluginName, pluginMap, flinkConfig));
+                    processPipelinePluginList.add(this.getAndCheck(pluginName, pluginMap, flinkPipelineConfig));
                 });
                 pipeline.setProcessPipelinePluginList(processPipelinePluginList);
             }
-            pipeline.setOutputPlugin(this.getAndCheck(property.getOutput(), pluginMap, flinkConfig));
+            pipeline.setOutputPlugin(this.getAndCheck(property.getOutput(), pluginMap, flinkPipelineConfig));
             pipelineMap.put(pipelineName, pipeline);
         });
         this.allPipelines = Collections.unmodifiableMap(pipelineMap);

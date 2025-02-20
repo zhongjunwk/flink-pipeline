@@ -1,5 +1,6 @@
-package com.zj.flink.pipeline.core.config;
+package com.zj.flink.pipeline.core.config.bean;
 
+import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,15 +8,16 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class PipelineProperties implements Serializable, Cloneable {
+@FlinkPipelineConfiguration("pipelineConfig")
+public class PipelineConfig implements Serializable, Cloneable {
 
     private String pluginPackages;
-    private Map<String, PipelineServerProperties> pipelines;
+    private Map<String, PipelineConfig.PipelineServerProperties> pipelines;
 
     @Override
-    public PipelineProperties clone() {
+    public PipelineConfig clone() {
         try {
-            return (PipelineProperties) super.clone();
+            return (PipelineConfig) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
