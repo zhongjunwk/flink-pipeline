@@ -1,20 +1,21 @@
-package com.zj.flink.config.bean;
+package com.zj.flink.mock.config.bean;
 
+import com.zj.flink.common.beans.MockData;
 import com.zj.flink.config.FlinkPipelineConfiguration;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 @Data
-public class WhiteListConfig implements FlinkPipelineConfiguration, Serializable, Cloneable {
+public class MockConfig implements FlinkPipelineConfiguration, Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
-    private List<String> distIpList;
+    private MockData mockData;
 
     @Override
-    public WhiteListConfig clone() {
+    public MockConfig clone() {
         try {
-            return (WhiteListConfig) super.clone();
+            return (MockConfig) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
@@ -22,6 +23,6 @@ public class WhiteListConfig implements FlinkPipelineConfiguration, Serializable
 
     @Override
     public Class<?> getRealSuperClass() {
-        return WhiteListConfig.class;
+        return MockConfig.class;
     }
 }

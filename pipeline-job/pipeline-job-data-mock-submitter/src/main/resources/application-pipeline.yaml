@@ -1,0 +1,8 @@
+flink:
+  pipeline:
+    pluginPackages: com.zj.flink.plugin
+    pipelines:
+      dataMockPipeline:
+        input: dataMockInputPipelinePlugin
+        output: dataMockOutputPipelinePlugin
+        plugins:

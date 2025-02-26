@@ -1,5 +1,0 @@
-flink:
-  whiteList:
-    distIpList:
-      - "10.2.1.1:80"
-      - "10.2.1.2:80"

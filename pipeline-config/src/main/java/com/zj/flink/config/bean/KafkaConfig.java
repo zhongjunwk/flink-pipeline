@@ -1,7 +1,7 @@
 package com.zj.flink.config.bean;
 
 import cn.hutool.core.util.StrUtil;
-import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
+import com.zj.flink.config.FlinkPipelineConfiguration;
 import lombok.Data;
 import org.apache.flink.connector.base.DeliveryGuarantee;
 
@@ -9,8 +9,7 @@ import java.io.Serializable;
 import java.util.Properties;
 
 @Data
-@FlinkPipelineConfiguration("kafkaConfig")
-public class KafkaConfig implements Serializable, Cloneable {
+public class KafkaConfig implements FlinkPipelineConfiguration, Serializable, Cloneable {
 
     public static final String BOOTSTRAP_SERVERS = "bootstrap.servers";
     public static final String TOPIC = "topic";
@@ -69,5 +68,10 @@ public class KafkaConfig implements Serializable, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public Class<?> getRealSuperClass() {
+        return KafkaConfig.class;
     }
 }

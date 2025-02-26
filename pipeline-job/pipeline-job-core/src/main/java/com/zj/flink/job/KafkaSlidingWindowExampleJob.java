@@ -1,16 +1,5 @@
 package com.zj.flink.job;
 
-import com.zj.flink.common.beans.RecordData;
-import com.zj.flink.config.bean.FlinkPipelineConfig;
-import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
-import com.zj.flink.context.FlinkAnnotationConfigApplicationContext;
-import com.zj.flink.context.FlinkApplicationConfigContext;
-import com.zj.flink.pipeline.core.PipelineManager;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.Map;
-
 /**
  * Flink Kafka滑动窗口示例作业
  */

@@ -1,6 +1,6 @@
 package com.zj.flink.config.bean;
 
-import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
+import com.zj.flink.config.FlinkPipelineConfiguration;
 import com.zj.flink.risk.beans.RiskStrategy;
 import lombok.Data;
 
@@ -8,8 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@FlinkPipelineConfiguration("riskStrategyConfig")
-public class RiskStrategyConfig implements Serializable, Cloneable {
+public class RiskStrategyConfig implements FlinkPipelineConfiguration, Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
     private List<RiskStrategy> riskStrategyList;
 
@@ -20,5 +19,10 @@ public class RiskStrategyConfig implements Serializable, Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public Class<?> getRealSuperClass() {
+        return RiskStrategyConfig.class;
     }
 }

@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "flink.pipeline")
-public class SpringPipelineConfig extends PipelineConfig {
+@ConfigurationProperties(prefix = "flink.kafka")
+public class SpringKafkaConfig extends KafkaConfig {
 }

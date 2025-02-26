@@ -25,7 +25,6 @@ public class FlinkAnnotationConfigApplicationContext {
 
     public FlinkAnnotationConfigApplicationContext(String applicationPath, Class<?> configClazz) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        ;
         FlinkAnnotationConfigApplicationContext.loadConfigFiles(applicationPath, applicationContext);
         // 注册配置类
         applicationContext.register(configClazz);
