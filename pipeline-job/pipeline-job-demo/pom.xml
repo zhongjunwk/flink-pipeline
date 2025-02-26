@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zj.flink</groupId>
+        <artifactId>pipeline-job</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>pipeline-job-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>pipeline-job-demo-common</module>
+        <module>pipeline-job-demo-data-processor</module>
+        <module>pipeline-job-demo-data-mock-processor</module>
+    </modules>
+    <properties>
+        <java.version>8</java.version>
+    </properties>
+</project>

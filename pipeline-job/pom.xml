@@ -12,12 +12,8 @@
     <artifactId>pipeline-job</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>pipeline-job-data-mock</module>
-        <module>pipeline-job-common</module>
         <module>pipeline-job-config</module>
-        <module>pipeline-job-core</module>
-        <module>pipeline-job-submitter</module>
-        <module>pipeline-job-data-mock-submitter</module>
+        <module>pipeline-job-demo</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -1,0 +1,14 @@
+package com.zj.flink.mock.bean;
+
+import com.zj.flink.config.bean.PipelineConfig;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Configuration
+@ConfigurationProperties(prefix = "flink.pipeline")
+public class SpringPipelineConfig extends PipelineConfig {
+}

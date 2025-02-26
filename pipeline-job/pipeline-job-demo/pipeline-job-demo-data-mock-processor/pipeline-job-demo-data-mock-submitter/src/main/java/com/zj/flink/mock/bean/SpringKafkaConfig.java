@@ -1,0 +1,14 @@
+package com.zj.flink.mock.bean;
+
+import com.zj.flink.mock.config.bean.KafkaConfig;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@Configuration
+@ConfigurationProperties(prefix = "flink.kafka")
+public class SpringKafkaConfig extends KafkaConfig {
+}

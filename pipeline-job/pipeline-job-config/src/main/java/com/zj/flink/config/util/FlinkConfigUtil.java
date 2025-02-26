@@ -1,11 +1,9 @@
 package com.zj.flink.config.util;
 
 import com.zj.flink.config.FlinkPipelineConfiguration;
-import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -11,3 +11,8 @@
 /logs/server.2025-02-20.0.log
 /logs/server.log
 /logs/wraped.log
+/pipeline-job/pipeline-job-demo/pipeline-job-demo-common/target/
+/pipeline-job/pipeline-job-demo/pipeline-job-demo-data-mock-processor/pipeline-job-demo-data-mock-processor-core/target/
+/pipeline-job/pipeline-job-demo/pipeline-job-demo-data-mock-processor/pipeline-job-demo-data-mock-submitter/target/
+/pipeline-job/pipeline-job-demo/pipeline-job-demo-data-processor/pipeline-job-demo-data-processor-core/target/
+/pipeline-job/pipeline-job-demo/pipeline-job-demo-data-processor/pipeline-job-demo-data-processor-submitter/target/

@@ -1,0 +1,11 @@
+flink:
+  pipeline:
+    pluginPackages: com.zj.flink.plugin
+    pipelines:
+      kafkaDataSensitiveScanPipeline:
+        input: kafkaInputPipelinePlugin
+        output: printOutputPipelinePlugin
+        plugins:
+          - hostnameFilterPipelinePlugin
+          - dataSensitiveScanPipelinePlugin
+          - riskScanPipelinePlugin

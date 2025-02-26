@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    include: base,pipeline,kafka,sensitive-data,white-list,risk-strategy
