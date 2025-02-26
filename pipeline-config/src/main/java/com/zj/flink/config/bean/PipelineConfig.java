@@ -5,14 +5,14 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class PipelineConfig implements FlinkPipelineConfiguration, Serializable, Cloneable {
 
     private String pluginPackages;
+    private String pipelineName;
     private int parallelism = 1;
-    private Map<String, PipelineConfig.PipelineServerProperties> pipelines;
+    private PipelineConfig.PipelineProperties pipeline;
 
     @Override
     public PipelineConfig clone() {
@@ -29,7 +29,7 @@ public class PipelineConfig implements FlinkPipelineConfiguration, Serializable,
     }
 
     @Data
-    public static class PipelineServerProperties implements Serializable, Cloneable {
+    public static class PipelineProperties implements Serializable, Cloneable {
 
         private String input;
 
@@ -38,9 +38,9 @@ public class PipelineConfig implements FlinkPipelineConfiguration, Serializable,
         private List<String> plugins;
 
         @Override
-        public PipelineServerProperties clone() {
+        public PipelineProperties clone() {
             try {
-                return (PipelineServerProperties) super.clone();
+                return (PipelineProperties) super.clone();
             } catch (CloneNotSupportedException e) {
                 throw new AssertionError();
             }

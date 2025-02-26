@@ -74,20 +74,19 @@ public class PipelineManager<Record> {
     private void init(FlinkPipelineConfig flinkPipelineConfig) {
         Map<String, Pipeline<Record>> pipelineMap = new HashMap<>();
         Map<String, Class<Record>> pluginMap = this.createInstances();
-        this.pipelineConfig.getPipelines().forEach((pipelineName, property) -> {
-            Pipeline<Record> pipeline = new Pipeline<>();
-            pipeline.setName(pipelineName);
-            pipeline.setInputPlugin(this.getAndCheck(property.getInput(), pluginMap, flinkPipelineConfig));
-            if (CollectionUtil.isNotEmpty(property.getPlugins())) {
-                List<PipelinePlugin<Record>> processPipelinePluginList = new ArrayList<>(property.getPlugins().size());
-                property.getPlugins().forEach((pluginName) -> {
-                    processPipelinePluginList.add(this.getAndCheck(pluginName, pluginMap, flinkPipelineConfig));
-                });
-                pipeline.setProcessPipelinePluginList(processPipelinePluginList);
-            }
-            pipeline.setOutputPlugin(this.getAndCheck(property.getOutput(), pluginMap, flinkPipelineConfig));
-            pipelineMap.put(pipelineName, pipeline);
-        });
+        Pipeline<Record> pipeline = new Pipeline<>();
+        pipeline.setName(this.pipelineConfig.getPipelineName());
+        PipelineConfig.PipelineProperties property = this.pipelineConfig.getPipeline();
+        pipeline.setInputPlugin(this.getAndCheck(property.getInput(), pluginMap, flinkPipelineConfig));
+        if (CollectionUtil.isNotEmpty(property.getPlugins())) {
+            List<PipelinePlugin<Record>> processPipelinePluginList = new ArrayList<>(property.getPlugins().size());
+            property.getPlugins().forEach((pluginName) -> {
+                processPipelinePluginList.add(this.getAndCheck(pluginName, pluginMap, flinkPipelineConfig));
+            });
+            pipeline.setProcessPipelinePluginList(processPipelinePluginList);
+        }
+        pipeline.setOutputPlugin(this.getAndCheck(property.getOutput(), pluginMap, flinkPipelineConfig));
+        pipelineMap.put(this.pipelineConfig.getPipelineName(), pipeline);
         this.allPipelines = Collections.unmodifiableMap(pipelineMap);
     }
 
