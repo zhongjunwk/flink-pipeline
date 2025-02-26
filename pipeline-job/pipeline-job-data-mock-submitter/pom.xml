@@ -24,11 +24,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.zj.flink</groupId>
-            <artifactId>pipeline-job-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
