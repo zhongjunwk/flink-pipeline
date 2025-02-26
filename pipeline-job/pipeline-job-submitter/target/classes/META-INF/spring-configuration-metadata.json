@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "name": "flink.kafka",
+      "type": "com.zj.flink.config.bean.SpringKafkaConfig",
+      "sourceType": "com.zj.flink.config.bean.SpringKafkaConfig"
+    },
+    {
+      "name": "flink.pipeline",
+      "type": "com.zj.flink.config.bean.SpringPipelineConfig",
+      "sourceType": "com.zj.flink.config.bean.SpringPipelineConfig"
+    },
+    {
+      "name": "flink.risk-strategy",
+      "type": "com.zj.flink.config.bean.SpringRiskStrategyConfig",
+      "sourceType": "com.zj.flink.config.bean.SpringRiskStrategyConfig"
+    },
+    {
+      "name": "flink.sensitive-data",
+      "type": "com.zj.flink.config.bean.SpringSensitiveDataConfig",
+      "sourceType": "com.zj.flink.config.bean.SpringSensitiveDataConfig"
+    },
+    {
+      "name": "flink.white-list",
+      "type": "com.zj.flink.config.bean.SpringWhiteListConfig",
+      "sourceType": "com.zj.flink.config.bean.SpringWhiteListConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "flink.kafka.consumer",
+      "type": "java.util.Properties",
+      "sourceType": "com.zj.flink.config.bean.SpringKafkaConfig"
+    },
+    {
+      "name": "flink.kafka.delivery-guarantee",
+      "type": "java.lang.String",
+      "sourceType": "com.zj.flink.config.bean.SpringKafkaConfig"
+    },
+    {
+      "name": "flink.kafka.producer",
+      "type": "java.util.Properties",
+      "sourceType": "com.zj.flink.config.bean.SpringKafkaConfig"
+    },
+    {
+      "name": "flink.pipeline.pipelines",
+      "type": "java.util.Map<java.lang.String,com.zj.flink.pipeline.core.config.bean.PipelineConfig$PipelineServerProperties>",
+      "sourceType": "com.zj.flink.config.bean.SpringPipelineConfig"
+    },
+    {
+      "name": "flink.pipeline.plugin-packages",
+      "type": "java.lang.String",
+      "sourceType": "com.zj.flink.config.bean.SpringPipelineConfig"
+    },
+    {
+      "name": "flink.risk-strategy.risk-strategy-list",
+      "type": "java.util.List<com.zj.flink.risk.beans.RiskStrategy>",
+      "sourceType": "com.zj.flink.config.bean.SpringRiskStrategyConfig"
+    },
+    {
+      "name": "flink.sensitive-data.sensitive-data-list",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.zj.flink.config.bean.SpringSensitiveDataConfig"
+    },
+    {
+      "name": "flink.white-list.dist-ip-list",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.zj.flink.config.bean.SpringWhiteListConfig"
+    }
+  ],
+  "hints": []
+}

@@ -1,8 +1,8 @@
 package com.zj.flink.config.bean;
 
+import cn.hutool.core.util.StrUtil;
 import com.zj.flink.config.bean.annotation.FlinkPipelineConfiguration;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.connector.base.DeliveryGuarantee;
 
 import java.io.Serializable;
@@ -56,7 +56,7 @@ public class KafkaConfig implements Serializable, Cloneable {
     }
 
     public DeliveryGuarantee getDeliveryGuarantee() {
-        if (StringUtils.isEmpty(deliveryGuarantee)) {
+        if (StrUtil.isEmpty(deliveryGuarantee)) {
             return DeliveryGuarantee.EXACTLY_ONCE;
         }
         return DeliveryGuarantee.valueOf(deliveryGuarantee);

@@ -16,6 +16,7 @@
         <module>pipeline-job-common</module>
         <module>pipeline-job-config</module>
         <module>pipeline-job-core</module>
+        <module>pipeline-job-submitter</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
