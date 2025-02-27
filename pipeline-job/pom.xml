@@ -12,7 +12,6 @@
     <artifactId>pipeline-job</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>pipeline-job-config</module>
         <module>pipeline-job-processor-base</module>
         <module>pipeline-job-processor-submitter</module>
         <module>pipeline-job-demo</module>

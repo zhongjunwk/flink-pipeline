@@ -1,4 +1,4 @@
-package com.zj.flink.config.util;
+package com.zj.flink.util;
 
 import com.zj.flink.config.FlinkPipelineConfiguration;
 import org.springframework.beans.BeanUtils;

@@ -20,11 +20,6 @@
         </dependency>
         <dependency>
             <groupId>com.zj.flink</groupId>
-            <artifactId>pipeline-job-config</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zj.flink</groupId>
             <artifactId>pipeline-job-processor-base</artifactId>
             <version>${project.version}</version>
         </dependency>

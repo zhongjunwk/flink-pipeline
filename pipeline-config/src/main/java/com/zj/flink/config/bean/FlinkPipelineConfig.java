@@ -7,8 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.zj.flink.config.FlinkPipelineConfiguration;
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.nio.charset.Charset;
@@ -17,9 +16,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Data
+@Slf4j
 public class FlinkPipelineConfig implements Serializable {
     private static final long serialVersionUID = 1L;
-    private static final Logger logger = LoggerFactory.getLogger(FlinkPipelineConfig.class);
     private static final Charset DEFAULT_CHARSET = StandardCharsets.ISO_8859_1;
     private Map<Class<?>, FlinkPipelineConfiguration> config = new ConcurrentHashMap<>();
 
@@ -60,11 +59,11 @@ public class FlinkPipelineConfig implements Serializable {
 
     public void initConfig(Map<Class<?>, FlinkPipelineConfiguration> inputConfig) {
         if (MapUtil.isEmpty(inputConfig)) {
-            logger.warn("Input configuration is empty, no changes made.");
+            log.warn("Input configuration is empty, no changes made.");
             return;
         }
         config.putAll(inputConfig);
-        logger.info("Configuration initialized successfully.");
+        log.info("Configuration initialized successfully.");
     }
 
     private static class SingletonHolder {
