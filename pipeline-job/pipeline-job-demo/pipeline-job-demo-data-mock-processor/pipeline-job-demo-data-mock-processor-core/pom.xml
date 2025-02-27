@@ -58,12 +58,6 @@
                             <Class-Path>./</Class-Path>
                         </manifestEntries>
                     </archive>
-                    <includes>
-                        <include>**/*.class</include>
-                        <!--防止version.properties没有打包进去-->
-                        <include>*.properties</include>
-                        <include>**/*.properties</include>
-                    </includes>
                 </configuration>
             </plugin>
         </plugins>
