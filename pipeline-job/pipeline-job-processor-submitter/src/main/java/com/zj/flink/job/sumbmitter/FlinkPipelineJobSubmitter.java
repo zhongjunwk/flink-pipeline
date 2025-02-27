@@ -2,9 +2,9 @@ package com.zj.flink.job.sumbmitter;
 
 import com.zj.flink.config.FlinkPipelineConfiguration;
 import com.zj.flink.config.bean.FlinkPipelineConfig;
-import com.zj.flink.util.FlinkConfigUtil;
 import com.zj.flink.context.FlinkAnnotationConfigApplicationContext;
 import com.zj.flink.context.FlinkApplicationConfigContext;
+import com.zj.flink.util.FlinkConfigUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

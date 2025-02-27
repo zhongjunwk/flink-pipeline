@@ -23,6 +23,21 @@
             <artifactId>pipeline-job-demo-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Flink clients依赖 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients</artifactId>
+        </dependency>
+        <!-- Flink Json 序列化依赖 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-json</artifactId>
+        </dependency>
+        <!-- Flink Shaded Jackson 2 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-shaded-jackson</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

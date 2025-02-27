@@ -65,8 +65,7 @@
                         <configuration>
                             <archive>
                                 <manifestEntries>
-                                    <program-class>com.zj.flink.mock.job.KafkaSlidingWindowExampleDataProducerJob
-                                    </program-class>
+                                    <program-class>job.flink.pipeline.job.FlinkPipelineJob</program-class>
                                 </manifestEntries>
                             </archive>
                         </configuration>
