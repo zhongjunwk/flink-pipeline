@@ -7,10 +7,6 @@
 /pipeline-job/pipeline-job-data-mock/target/
 /pipeline-job/pipeline-job-data-mock-submitter/target/
 /pipeline-job/pipeline-job-submitter/target/
-/logs/performance.log
-/logs/server.2025-02-20.0.log
-/logs/server.log
-/logs/wraped.log
 /pipeline-job/pipeline-job-demo/pipeline-job-demo-common/target/
 /pipeline-job/pipeline-job-demo/pipeline-job-demo-data-mock-processor/pipeline-job-demo-data-mock-processor-core/target/
 /pipeline-job/pipeline-job-demo/pipeline-job-demo-data-mock-processor/pipeline-job-demo-data-mock-submitter/target/
@@ -18,3 +14,4 @@
 /pipeline-job/pipeline-job-demo/pipeline-job-demo-data-processor/pipeline-job-demo-data-processor-submitter/target/
 /pipeline-job/pipeline-job-processor-base/target/
 /pipeline-job/pipeline-job-processor-submitter/target/
+/logs/
