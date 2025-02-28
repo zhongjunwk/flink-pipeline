@@ -126,9 +126,12 @@
                     <useNativeGit>true</useNativeGit>
                     <dateFormat>MMddHH</dateFormat>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <generateGitPropertiesFilename>${project.build.outputDirectory}/version.properties</generateGitPropertiesFilename>
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/version.properties
+                    </generateGitPropertiesFilename>
                     <includeOnlyProperties>
-                        <includeOnlyProperty>(^git.build.(time|version)$)|(^git.remote.origin.url$)|(^git.branch$)|(^git.closest.tag.name$)|(^git.commit.(id.full|message.full)$)</includeOnlyProperty>
+                        <includeOnlyProperty>
+                            (^git.build.(time|version)$)|(^git.remote.origin.url$)|(^git.branch$)|(^git.closest.tag.name$)|(^git.commit.(id.full|message.full)$)
+                        </includeOnlyProperty>
                     </includeOnlyProperties>
                     <commitIdGenerationMode>full</commitIdGenerationMode>
                 </configuration>
