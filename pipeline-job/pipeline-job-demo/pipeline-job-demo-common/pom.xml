@@ -18,6 +18,11 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.zj.flink</groupId>
+            <artifactId>pipeline-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java</artifactId>
         </dependency>

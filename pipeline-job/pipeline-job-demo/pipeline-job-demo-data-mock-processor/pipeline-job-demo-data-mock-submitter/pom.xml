@@ -57,7 +57,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.zj.flink.job.sumbmitter.FlinkPipelineJobSubmitter</mainClass>
+                            <mainClass>com.zj.flink.job.submitter.strategy.FlinkPipelineJobSubmitter</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>./</Class-Path>

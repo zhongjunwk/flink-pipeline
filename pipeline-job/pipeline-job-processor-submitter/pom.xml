@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zj.flink</groupId>
-            <artifactId>pipeline-config</artifactId>
+            <artifactId>pipeline-job-processor-base</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

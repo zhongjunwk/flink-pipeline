@@ -19,6 +19,7 @@
         <lombook.version>1.18.30</lombook.version>
         <slf4j.version>1.7.32</slf4j.version>
         <logback.version>1.2.12</logback.version>
+        <fury.version>0.8.0</fury.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
@@ -74,6 +75,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.fury</groupId>
+                <artifactId>fury-core</artifactId>
+                <version>${fury.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>

@@ -1,9 +1,9 @@
-package com.zj.flink.mock.job;
+package com.zj.flink.job;
 
-import com.zj.flink.common.beans.RecordData;
 import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.config.bean.PipelineConfig;
 import com.zj.flink.pipeline.core.PipelineManager;
+import com.zj.flink.pipeline.core.bean.PipelineRecord;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -24,8 +24,7 @@ public class FlinkPipelineJob {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         PipelineConfig pipelineConfig = FlinkPipelineConfig.getInstance().getConfig(PipelineConfig.class);
         //设置并行度
-        env.setParallelism(pipelineConfig.getParallelism());
-        new PipelineManager<RecordData>().start(FlinkPipelineConfig.getInstance(), env);
+        new PipelineManager<PipelineRecord>().start(FlinkPipelineConfig.getInstance(), env);
         // 执行Flink作业
         env.execute(pipelineConfig.getPipelineName());
     }

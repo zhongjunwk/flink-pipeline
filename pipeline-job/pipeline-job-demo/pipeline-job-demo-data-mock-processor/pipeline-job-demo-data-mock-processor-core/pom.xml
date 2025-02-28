@@ -15,6 +15,11 @@
     <dependencies>
         <dependency>
             <groupId>com.zj.flink</groupId>
+            <artifactId>pipeline-job-demo-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zj.flink</groupId>
             <artifactId>pipeline-job-processor-base</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -54,7 +59,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.zj.flink.mock.job.FlinkPipelineJob</mainClass>
+                            <mainClass>com.zj.flink.job.FlinkPipelineJob</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

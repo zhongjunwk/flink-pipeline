@@ -1,21 +1,19 @@
 package com.zj.flink.common.beans;
 
 import cn.hutool.core.collection.ConcurrentHashSet;
+import com.zj.flink.pipeline.core.bean.PipelineRecord;
 import com.zj.flink.risk.beans.RiskStrategy;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RecordData implements Serializable {
+public class RecordData extends PipelineRecord {
 
     private static final long serialVersionUID = 1L;
 

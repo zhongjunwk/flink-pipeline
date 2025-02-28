@@ -1,11 +1,9 @@
 package com.zj.flink.config.bean;
 
-import cn.hutool.core.codec.Base64Decoder;
-import cn.hutool.core.codec.Base64Encoder;
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.zj.flink.config.FlinkPipelineConfiguration;
+import com.zj.flink.config.util.FstHelper;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,14 +37,14 @@ public class FlinkPipelineConfig implements Serializable {
         if (StrUtil.isBlank(configMapSerializableStr)) {
             return new ConcurrentHashMap<>();
         }
-        return ObjectUtil.deserialize(Base64Decoder.decodeStr(configMapSerializableStr, FlinkPipelineConfig.DEFAULT_CHARSET).getBytes(FlinkPipelineConfig.DEFAULT_CHARSET));
+        return FstHelper.string2Obj(configMapSerializableStr);
     }
 
     public static String buildConfigMapSerializableStr(Map<Class<?>, FlinkPipelineConfiguration> configMap) {
         if (MapUtil.isEmpty(configMap)) {
             return "";
         }
-        return Base64Encoder.encode(new String(ObjectUtil.serialize(configMap), FlinkPipelineConfig.DEFAULT_CHARSET), FlinkPipelineConfig.DEFAULT_CHARSET);
+        return FstHelper.obj2String(configMap);
     }
 
     public static String buildConfigMapSerializableStr() {

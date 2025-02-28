@@ -18,11 +18,6 @@
             <artifactId>pipeline-core</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.zj.flink</groupId>
-            <artifactId>pipeline-job-demo-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <!-- Flink clients依赖 -->
         <dependency>
             <groupId>org.apache.flink</groupId>
