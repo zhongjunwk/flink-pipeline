@@ -64,6 +64,16 @@ public class AppConfig implements FlinkPipelineConfiguration, Serializable, Clon
          */
         private Boolean allowNonRestoredState = false;
 
+        /**
+         * 重启次数
+         */
+        private Integer restartAttempts;
+
+        /**
+         * 重启间隔,单位s
+         */
+        private Integer delayIntervalSeconds;
+
 
         @Override
         public FlinkConfig clone() {

@@ -1,10 +1,11 @@
 package com.zj.flink.config.util;
 
-import java.util.Base64;
 import org.apache.fury.Fury;
 import org.apache.fury.ThreadLocalFury;
 import org.apache.fury.ThreadSafeFury;
 import org.apache.fury.config.Language;
+
+import java.util.Base64;
 
 /**
  *

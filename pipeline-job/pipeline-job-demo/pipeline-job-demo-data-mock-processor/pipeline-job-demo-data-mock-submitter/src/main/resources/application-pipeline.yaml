@@ -2,7 +2,6 @@ flink:
   pipeline:
     pluginPackages: com.zj.flink.mock.plugin
     pipelineName: dataMockPipeline
-    parallelism: 1
     pipeline:
       input: dataMockInputPipelinePlugin
       output: dataMockOutputPipelinePlugin
