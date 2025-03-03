@@ -9,4 +9,4 @@ flink:
       # 目前仅支持standalone
       mode: standalone
       # 并行度
-      parallelism: 1
+      parallelism: 2

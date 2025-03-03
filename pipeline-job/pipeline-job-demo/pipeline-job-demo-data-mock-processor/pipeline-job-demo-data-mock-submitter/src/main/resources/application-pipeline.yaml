@@ -2,6 +2,7 @@ flink:
   pipeline:
     pluginPackages: com.zj.flink.mock.plugin
     pipelineName: dataMockPipeline
+    disableChaining: true
     pipeline:
       input: dataMockInputPipelinePlugin
       output: dataMockOutputPipelinePlugin

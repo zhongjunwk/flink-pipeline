@@ -36,7 +36,7 @@ public class StandAloneExecutionStrategy extends AbstractExecutionStrategy imple
             savePointPath = "&savepointPath=" + jobStartBO.getSavePointPath();
         }
         String param = "allowNonRestoredState=" + jobStartBO.getAllowNonRestoredState() + "&entry-class=" + jobStartBO.getEntryClass() + "&parallelism=" + jobStartBO.getParallelism() + "&program-args=" + encodeParams + savePointPath;
-        String url = String.format ("%sjars/%s/run?%s", flinkBo.getUrl(), jar, param);
+        String url = String.format("%sjars/%s/run?%s", flinkBo.getUrl(), jar, param);
         log.info("向flink集群提交任务.url:{}", url);
 
         String result = HttpUtil.post(url, "");

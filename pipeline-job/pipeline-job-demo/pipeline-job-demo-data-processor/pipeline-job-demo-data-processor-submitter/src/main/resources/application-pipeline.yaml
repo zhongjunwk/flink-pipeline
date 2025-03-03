@@ -2,6 +2,7 @@ flink:
   pipeline:
     pluginPackages: com.zj.flink.plugin
     pipelineName: dataSensitiveScanPipeline
+    disableChaining: true
     pipeline:
       input: kafkaInputPipelinePlugin
       output: printOutputPipelinePlugin

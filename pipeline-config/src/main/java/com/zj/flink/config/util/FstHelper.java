@@ -23,6 +23,6 @@ public class FstHelper {
 
     public static <T> T string2Obj(String s) {
         byte[] decode = Base64.getUrlDecoder().decode(s);
-        return (T)fury.deserialize(decode);
+        return (T) fury.deserialize(decode);
     }
 }

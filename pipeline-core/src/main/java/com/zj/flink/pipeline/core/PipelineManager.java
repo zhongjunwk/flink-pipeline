@@ -25,7 +25,7 @@ public class PipelineManager<Record> {
     public void start(FlinkPipelineConfig flinkPipelineConfig, StreamExecutionEnvironment env) {
         this.pipelineConfig = flinkPipelineConfig.getConfig(PipelineConfig.class);
         this.init(flinkPipelineConfig);
-        this.allPipelines.forEach((name, pipeline) -> pipeline.start(env));
+        this.allPipelines.forEach((name, pipeline) -> pipeline.start(env, Boolean.TRUE.equals(pipelineConfig.getDisableChaining())));
     }
 
     private Set<Class<?>> getPlugins(String pluginsScanPackage) {

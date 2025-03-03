@@ -34,7 +34,7 @@ public final class Pipeline<T> {
     @Getter
     private PipelinePlugin<T> outputPlugin;
 
-    public void start(StreamExecutionEnvironment env) {
+    public void start(StreamExecutionEnvironment env, boolean disableChaining) {
         if (null == inputPlugin) {
             logger.warn("input plugin is null");
             return;
@@ -43,7 +43,7 @@ public final class Pipeline<T> {
             logger.warn("input plugin is not InputPipelinePlugin");
             return;
         }
-        DataStream<T> dataStream = this.process(((InputPipelinePlugin<T>) inputPlugin).process(env), env);
+        DataStream<T> dataStream = this.process(((InputPipelinePlugin<T>) inputPlugin).process(env, disableChaining), env, disableChaining);
         if (null == outputPlugin) {
             logger.warn("output plugin is null");
             return;
@@ -52,17 +52,17 @@ public final class Pipeline<T> {
             logger.warn("output plugin is not OutputPipelinePlugin");
             return;
         }
-        ((OutputPipelinePlugin<T>) outputPlugin).process(dataStream, env);
+        ((OutputPipelinePlugin<T>) outputPlugin).process(dataStream, env, disableChaining);
     }
 
-    private DataStream<T> process(DataStream<T> dataStream, StreamExecutionEnvironment env) {
+    private DataStream<T> process(DataStream<T> dataStream, StreamExecutionEnvironment env, boolean disableChaining) {
         if (CollectionUtils.isEmpty(processPipelinePluginList)) {
             logger.warn("process pipeline plugin list is empty");
             return dataStream;
         }
         DataStream<T> dataStreamNext = dataStream;
         for (PipelinePlugin<T> pipelinePlugin : processPipelinePluginList) {
-            dataStreamNext = ((ProcessPipelinePlugin<T>) pipelinePlugin).process(dataStreamNext, env);
+            dataStreamNext = ((ProcessPipelinePlugin<T>) pipelinePlugin).process(dataStreamNext, env, disableChaining);
         }
         return dataStreamNext;
     }

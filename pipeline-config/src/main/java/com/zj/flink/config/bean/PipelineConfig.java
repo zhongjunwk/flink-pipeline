@@ -11,6 +11,7 @@ public class PipelineConfig implements FlinkPipelineConfiguration, Serializable,
 
     private String pluginPackages;
     private String pipelineName;
+    private Boolean disableChaining = false;
     private PipelineConfig.PipelineProperties pipeline;
 
     @Override
