@@ -6,12 +6,14 @@ import com.zj.flink.config.bean.FlinkPipelineConfig;
 import com.zj.flink.mock.config.bean.KafkaConfig;
 import com.zj.flink.pipeline.core.annotation.PluginComponent;
 import com.zj.flink.pipeline.core.plugins.AbstractOutputPipelinePlugin;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 @PluginComponent("dataMockOutputPipelinePlugin")
+@Slf4j
 public class DataMockOutputPipelinePlugin extends AbstractOutputPipelinePlugin<RecordData> {
 
     private KafkaConfig kafkaConfig;

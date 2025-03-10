@@ -8,13 +8,7 @@ public interface OutputPipelinePlugin<T> extends PipelinePlugin<T> {
     void process(DataStream<T> dataStream, StreamExecutionEnvironment context);
 
     default void process(DataStream<T> dataStream, StreamExecutionEnvironment context, boolean disableChaining) {
-        if (dataStream == null) {
-            return;
-        }
-        if (disableChaining) {
-            dataStream.print(this.getClass().getName()).name(this.getClass().getName()).disableChaining();
-        } else {
-            dataStream.print(this.getClass().getName());
-        }
+        PipelinePlugin.super.disableChaining(dataStream, disableChaining);
+        this.process(dataStream, context);
     }
 }
